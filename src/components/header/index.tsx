@@ -1,17 +1,20 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-
-import Login from "@/components/login";
-import { useAuth } from "@/api/auth-context";
-import logo from "@/assets/logo.svg";
 import { NavLink } from "react-router-dom";
 
-import * as styles from "./styles";
-import { Box, Container } from "@mui/material";
+import { useAuth } from "@/api/auth-context";
+
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Toolbar from "@mui/material/Toolbar";
 
 import DesktopNav from "./desktop-nav";
 import MobileNav from "./mobile-nav";
 import UserSection from "./user-section";
+import Login from "@/components/login";
+
+import logo from "@/assets/logo.svg";
+
+import * as styles from "./styles";
 
 const Header = () => {
   const { isLoggedIn } = useAuth();

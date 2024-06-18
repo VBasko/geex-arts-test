@@ -1,16 +1,17 @@
-import {
-  Select,
-  MenuItem,
-  ListItemIcon,
-  ListItemText,
-  SelectChangeEvent,
-  Box,
-  FormControl,
-} from "@mui/material";
-import ChevronDownIcon from "../ui/icons/chevron-down-icon";
+import { useState } from "react";
+
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+
+import ChevronDownIcon from "@/components/ui/icons/chevron-down-icon";
 import flagRu from "@/assets/flag-ru.png";
 import flagEng from "@/assets/flag-eng.png";
-import { useState } from "react";
+
+import * as styles from "./styles";
 
 type Languages = "ru" | "en";
 
@@ -40,33 +41,10 @@ const LangSwitcher = () => {
         aria-label="Language selection"
         value={currentLanguage}
         onChange={handleLanguageChange}
-        sx={{
-          outline: "none",
-          border: "none",
-          cursor: "pointer",
-
-          "& .MuiSelect-select": {
-            display: "flex",
-            alignItems: "center",
-            gap: "6px",
-            padding: 0,
-            paddingRight: "24px !important",
-            fontWeight: "inherit",
-          },
-          "& .MuiOutlinedInput-notchedOutline": {
-            border: "none",
-          },
-        }}
+        sx={styles.select}
         MenuProps={{ sx: { boxShadow: "none" } }}
         IconComponent={() => (
-          <Box
-            sx={{
-              position: "absolute",
-              right: 0,
-              pointerEvents: "none",
-              height: "100%",
-            }}
-          >
+          <Box sx={styles.iconWrapper}>
             <ChevronDownIcon />
           </Box>
         )}

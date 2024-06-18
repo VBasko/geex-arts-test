@@ -1,6 +1,8 @@
-import { Typography, TypographyProps } from "@mui/material";
-import Box from "@mui/material/Box";
 import { useState } from "react";
+
+import Box from "@mui/material/Box";
+import Typography, { TypographyProps } from "@mui/material/Typography";
+
 import ButtonLink from "../button-link";
 
 interface IReadMore {

@@ -1,6 +1,5 @@
-import { Typography } from "@mui/material";
 import ButtonBase from "@mui/material/ButtonBase";
-import React from "react";
+import Typography from "@mui/material/Typography";
 
 interface IButtonLink {
   children: React.ReactNode;

@@ -1,6 +1,5 @@
-import React from "react";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Box from "@mui/material/Box";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 import * as styles from "./styles";
 

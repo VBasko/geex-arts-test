@@ -1,8 +1,12 @@
 import { useAuth } from "@/api/auth-context";
+
+import theme from "@/theme";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+
 import LangSwitcher from "@/components/lang-switcher";
 import UserIcon from "@/components/ui/icons/user-icon";
-import theme from "@/theme";
-import { Box, IconButton, Avatar } from "@mui/material";
 
 const UserSection = () => {
   const { isLoggedIn, user, setLoginProcessStarted } = useAuth();

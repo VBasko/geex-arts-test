@@ -11,35 +11,12 @@ import { favoriteCards } from "@/consts/favorite-cards";
 
 const FeedPage = () => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "32px",
-        paddingY: { xs: "16px", sm: "26px" },
-      }}
-    >
+    <Box sx={styles.feedWrapper}>
       <Favorite cards={favoriteCards} />
 
       <Container>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(12, 1fr)",
-            columnGap: "24px",
-            rowGap: "32px",
-          }}
-        >
-          <Box
-            sx={{
-              gridColumn: {
-                xs: "span 12",
-                sm: "span 6",
-                md: "span 8",
-                lg: "span 8",
-              },
-            }}
-          >
+        <Box sx={styles.gridContainer}>
+          <Box sx={styles.leftColumn}>
             <Box component="main">
               {articles.map((article) => (
                 <Article key={article.title} article={article} />
@@ -47,20 +24,8 @@ const FeedPage = () => {
             </Box>
           </Box>
 
-          <Box
-            sx={{
-              gridColumn: {
-                xs: "span 12",
-                sm: "span 6",
-                md: "span 4",
-                lg: "span 4",
-              },
-            }}
-          >
-            <Box
-              component="aside"
-              sx={{ display: "flex", flexDirection: "column", gap: "24px" }}
-            >
+          <Box sx={styles.rightColumn}>
+            <Box component="aside" sx={styles.aside}>
               <Filters />
 
               <FeaturedCard />
@@ -70,6 +35,42 @@ const FeedPage = () => {
       </Container>
     </Box>
   );
+};
+
+const styles = {
+  feedWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "32px",
+    paddingY: { xs: "16px", sm: "26px" },
+  },
+
+  gridContainer: {
+    display: "grid",
+    gridTemplateColumns: "repeat(12, 1fr)",
+    columnGap: "24px",
+    rowGap: "32px",
+  },
+
+  leftColumn: {
+    gridColumn: {
+      xs: "span 12",
+      sm: "span 6",
+      md: "span 8",
+      lg: "span 8",
+    },
+  },
+
+  rightColumn: {
+    gridColumn: {
+      xs: "span 12",
+      sm: "span 6",
+      md: "span 4",
+      lg: "span 4",
+    },
+  },
+
+  aside: { display: "flex", flexDirection: "column", gap: "24px" },
 };
 
 export default FeedPage;
