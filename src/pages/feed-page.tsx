@@ -1,11 +1,12 @@
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
+import Favorite from "@/components/favorite";
 import Article from "@/components/article";
 import FeaturedCard from "@/components/featured-card";
 import Filters from "@/components/filters";
-import { Box, Container } from "@mui/material";
 
 import { articles } from "@/consts/articles";
-
-import Favorite from "@/components/favorite";
 import { favoriteCards } from "@/consts/favorite-cards";
 
 const FeedPage = () => {
