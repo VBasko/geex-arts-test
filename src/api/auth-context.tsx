@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import userAvatar from "@/assets/user-avatar.png";
 
 interface IUser {
@@ -30,6 +36,26 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoginProcessStarted, setIsLoginProcessStarted] = useState(false);
   const [user, setUser] = useState<IUser | null>(null);
+
+  useLayoutEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (storedUser && storedIsLoggedIn) {
+      setUser(JSON.parse(storedUser));
+      setIsLoggedIn(JSON.parse(storedIsLoggedIn));
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    if (isLoggedIn) {
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+    } else {
+      localStorage.removeItem("user");
+      localStorage.removeItem("isLoggedIn");
+    }
+  }, [isLoggedIn, user]);
 
   const setLoginProcessStarted = (isStarted: boolean) => {
     setIsLoginProcessStarted(isStarted);
