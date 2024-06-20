@@ -4,9 +4,6 @@ export const select = {
   cursor: "pointer",
 
   "& .MuiSelect-select": {
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
     padding: 0,
     paddingRight: "24px !important",
     fontWeight: "inherit",
@@ -22,4 +19,5 @@ export const iconWrapper = {
   right: 0,
   pointerEvents: "none",
   height: "100%",
+  color: "#9395B8",
 };

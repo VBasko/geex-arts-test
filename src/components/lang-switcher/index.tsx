@@ -28,23 +28,44 @@ const LANGUAGES: ILanguage[] = [
 
 const LangSwitcher = () => {
   const [currentLanguage, setCurrentLanguage] = useState<Languages>("ru");
+  const [open, setOpen] = useState(false);
 
   const handleLanguageChange = (event: SelectChangeEvent<Languages>) => {
     setCurrentLanguage(event.target.value as Languages);
   };
 
+  const handleMenuOpen = () => {
+    setOpen(true);
+  };
+
+  const handleMenuClose = () => {
+    setOpen(false);
+  };
+
   return (
     <FormControl sx={{ minWidth: "69px", flexGrow: 1 }}>
       <Select
+        open={open}
+        onOpen={handleMenuOpen}
+        onClose={handleMenuClose}
         disabled={true}
         autoWidth
-        aria-label="Language selection"
+        aria-label="Выберите язык"
         value={currentLanguage}
         onChange={handleLanguageChange}
         sx={styles.select}
         MenuProps={{ sx: { boxShadow: "none" } }}
         IconComponent={() => (
-          <Box sx={styles.iconWrapper}>
+          <Box
+            sx={{
+              ...styles.iconWrapper,
+
+              "& svg": {
+                transition: "all 0.3s ease",
+                transform: open ? "rotate(180deg)" : "rotate(0deg)",
+              },
+            }}
+          >
             <ChevronDownIcon />
           </Box>
         )}
@@ -55,13 +76,15 @@ const LangSwitcher = () => {
             value={lang.code}
             disabled={lang.code !== "ru"}
           >
-            <ListItemIcon>
-              <img src={lang.icon} alt={lang.label} width={20} />
-            </ListItemIcon>
-            <ListItemText
-              primary={lang.label}
-              sx={{ margin: 0, flex: "auto" }}
-            />
+            <Box sx={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              <ListItemIcon>
+                <img src={lang.icon} alt={lang.label} width={20} />
+              </ListItemIcon>
+              <ListItemText
+                primary={lang.label}
+                sx={{ margin: 0, flex: "auto" }}
+              />
+            </Box>
           </MenuItem>
         ))}
       </Select>

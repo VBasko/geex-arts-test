@@ -70,13 +70,13 @@ const UserSection = () => {
 
                 "& svg": {
                   transition: "all 0.3s ease",
-                  transform: anchorElUser ? "rotate(180deg)" : "roatate(0deg)",
+                  transform: anchorElUser ? "rotate(180deg)" : "rotate(0deg)",
                 },
               }}
             >
               <Avatar
                 src={user?.avatar}
-                alt="User Avatar"
+                alt="Аватар пользователя"
                 sx={{ width: 36, height: 36 }}
               />
 
@@ -115,7 +115,7 @@ const UserSection = () => {
             borderRadius: "10px",
           }}
           onClick={() => setLoginProcessStarted(true)}
-          aria-label="Login"
+          aria-label="Войти"
         >
           <UserIcon />
         </IconButton>

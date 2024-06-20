@@ -102,6 +102,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: "#9395B8",
+        },
+      },
+    },
   },
   palette: {
     primary: {
